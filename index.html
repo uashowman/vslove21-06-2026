@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="С годовщиной — наша история любви" />
+  <title>С годовщиной ❤️</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💜</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Aurora Background -->
+  <div class="aurora"></div>
+
+  <!-- Floating Particles -->
+  <div class="particles-container"></div>
+
+  <!-- Hearts Canvas -->
+  <canvas id="hearts-canvas"></canvas>
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="assets/music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- ========== START SCREEN ========== -->
+  <div class="start-screen" id="start-screen">
+    <div class="start-content">
+      <div class="start-emoji">💜</div>
+      <p class="start-text">У&nbsp;меня для тебя<br>кое&#8209;что есть…</p>
+      <button class="start-button" id="start-btn">
+        Нажми <span class="heart-icon">❤️</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== LOADING SCREEN ========== -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-content">
+      <div class="loading-emoji">💜</div>
+      <p class="loading-text">Готовлю всё для тебя…</p>
+      <div class="loading-bar-wrap">
+        <div class="loading-bar" id="loading-bar"></div>
+      </div>
+      <p class="loading-percent" id="loading-percent">0%</p>
+    </div>
+  </div>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <div class="main-content" id="main-content">
+
+    <!-- ═══════ HERO: Основная фотография ═══════ -->
+    <section class="story-section hero-section" id="section-hero">
+      <div class="hero-card">
+        <div class="hero-photo-frame">
+          <img src="media/main.png" alt="Мы" class="hero-photo" loading="eager" />
+          <div class="hero-photo-border"></div>
+        </div>
+        <h1 class="hero-title">История Влада и Саши 💜</h1>
+        <p class="hero-subtitle">Каждый момент с тобой — бесценный</p>
+      </div>
+    </section>
+
+    <!-- ═══════ Блок 1: Начало ═══════ -->
+
+    <section class="story-section" id="section-beginning">
+      <div class="story-card">
+        <div class="section-emoji">🌸</div>
+        <h2 class="section-title">Помнишь, как всё началось…</h2>
+        <p class="section-text">
+          Твои первые цветы, загадочная записка... Тот самый оранжевый закат и наши первые объятия, когда всё только начиналось.
+        </p>
+      </div>
+    </section>
+    <section class="story-section photo-grid-section">
+      <div class="photo-grid-container">
+        <h2 class="photo-grid-title">Первые моменты ✨</h2>
+        <div class="photo-grid grid-3">
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/first%200.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/first%201.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/first%202.JPG" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/first%203.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/nice%2000.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section">
+      <div class="story-card">
+        <div class="section-emoji">🥂</div>
+        <h2 class="section-title">Наши идеальные свидания</h2>
+        <p class="section-text">
+          Разделять с тобой вкусную еду и самые тёплые вечера — моё любимое занятие.
+        </p>
+      </div>
+    </section>
+    <section class="story-section video-section">
+      <div class="video-card reveal-item">
+        <h2 class="video-title">Наш уютный вечер 🎥</h2>
+        <div class="video-wrapper">
+          <video src="media/0.5%20relationtship.MP4" muted loop playsinline preload="metadata" class="story-video" data-autoplay></video>
+          <div class="video-play-overlay" data-target="video">
+            <span class="play-icon">▶</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section video-section">
+      <div class="video-card reveal-item">
+        <h2 class="video-title">Твой День Рождения 🎥</h2>
+        <div class="video-wrapper">
+          <video src="media/her%20HB.MP4" muted loop playsinline preload="metadata" class="story-video" data-autoplay></video>
+          <div class="video-play-overlay" data-target="video">
+            <span class="play-icon">▶</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section photo-grid-section">
+      <div class="photo-grid-container">
+        <h2 class="photo-grid-title">Вкусно и красиво ✨</h2>
+        <div class="photo-grid grid-4">
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/food%201.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/food%202.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/food%203.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/food%204.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/food%205.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/food%2010.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section">
+      <div class="story-card">
+        <div class="section-emoji">🌹</div>
+        <h2 class="section-title">Сюрпризы и романтика</h2>
+        <p class="section-text">
+          Ради твоей улыбки я готов на всё, даже везти цветы в поезде из другого города. А твои подарки всегда согревают мне сердце.
+        </p>
+      </div>
+    </section>
+    <section class="story-section video-section">
+      <div class="video-card reveal-item">
+        <h2 class="video-title">Цветы из Киева 🎥</h2>
+        <div class="video-wrapper">
+          <video src="media/flowers%20from%20kyiv.MP4" muted loop playsinline preload="metadata" class="story-video" data-autoplay></video>
+          <div class="video-play-overlay" data-target="video">
+            <span class="play-icon">▶</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section photo-grid-section">
+      <div class="photo-grid-container">
+        <h2 class="photo-grid-title">Внимание в деталях ✨</h2>
+        <div class="photo-grid grid-4">
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/nice.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/nice%201.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/nice%202.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/nice%203.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/nice%204.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/nice%205.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/nice%206.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/nice%207.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/nice%208.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/nice%209.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/nice%2010.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/nice%2011.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section">
+      <div class="story-card">
+        <div class="section-emoji">🎮</div>
+        <h2 class="section-title">Как мы проводим время</h2>
+        <p class="section-text">
+          Будь то совместные онлайн игры или поход в кино — с тобой любое занятие становится лучшим моментом дня.<br><br>
+          <span style="font-size: 0.9em; opacity: 0.8; font-style: italic;">(P.S. На второй год список фильмов должен быть раза в 2-3 больше точно! 😄)</span>
+        </p>
+      </div>
+    </section>
+    <section class="story-section photo-grid-section">
+      <div class="photo-grid-container">
+        <h2 class="photo-grid-title">Игровые вечера ✨</h2>
+        <div class="photo-grid grid-3">
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/games%201.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/games%202.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/games%203.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/games%204.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/games%205.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section photo-grid-section">
+      <div class="photo-grid-container">
+        <h2 class="photo-grid-title">Наши фильмы ✨</h2>
+        <div class="photo-grid grid-3">
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/movie%201.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/movie%202.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/movie%203.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/movie%204.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/movie%205.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section">
+      <div class="story-card">
+        <div class="section-emoji">👯‍♂️</div>
+        <h2 class="section-title">С нашими друзьями</h2>
+        <p class="section-text">
+          Наша сумасшедшая компания, смех и лучшие вечеринки.
+        </p>
+      </div>
+    </section>
+    <section class="story-section photo-grid-section">
+      <div class="photo-grid-container">
+        <h2 class="photo-grid-title">Мурашки ✨</h2>
+        <div class="photo-grid grid-4">
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/company%201.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/company%202.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/company%203.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/company%204.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/company%205.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/company%206.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/company%207.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/company%208.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/company%209.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/company%2010.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/company%2011.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/company%2012.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/company%2013.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/company%2014.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/company%2015.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/company%2016.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/company%2017.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/company%2018.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/company%2028.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section">
+      <div class="story-card">
+        <div class="section-emoji">💍</div>
+        <h2 class="section-title">Когда-нибудь и у нас будет такая...</h2>
+        <p class="section-text">
+          На свадьбе у Дани и Насти. Рядом с тобой я думаю о нашем будущем.
+        </p>
+      </div>
+    </section>
+    <section class="story-section photo-grid-section">
+      <div class="photo-grid-container">
+        <h2 class="photo-grid-title">Прекрасный день ✨</h2>
+        <div class="photo-grid grid-2">
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/wedding%201.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/wedding%202.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/wedding%203.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/wedding%204.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/wedding%205.jpeg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section">
+      <div class="story-card">
+        <div class="section-emoji">💜</div>
+        <h2 class="section-title">Мы</h2>
+        <p class="section-text">
+          Каждая фотография с тобой — это застывшее счастье.
+        </p>
+      </div>
+    </section>
+    <section class="story-section photo-grid-section">
+      <div class="photo-grid-container">
+        <h2 class="photo-grid-title">Только ты и я ✨</h2>
+        <div class="photo-grid grid-4">
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/we.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/we%201.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/we%204.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/we%205.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/we%206.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/we%207.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/we%208.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/we%209.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/we%2010.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/we%2011.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/we%2012.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/we%2013.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/we%2014.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/we%2015.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/we%2016.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/we%2017.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/we%2018.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/we%2019.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/we%2020.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="300">
+            <img src="media/we%2021.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="0">
+            <img src="media/we%2022.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="100">
+            <img src="media/we%2023.JPG" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+          <div class="photo-grid-item reveal-item" data-delay="200">
+            <img src="media/we%2024.jpg" alt="Наш момент" loading="lazy" />
+            <div class="photo-shine"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section">
+      <div class="story-card" style="text-align: center;">
+        <div class="section-emoji">📹</div>
+        <h2 class="section-title">Наши кружочки и моменты</h2>
+        <p class="section-text" style="margin-bottom: 2rem;">
+          Смешные, уютные и настоящие видео из нашей жизни.
+        </p>
+        <div class="video-circles-container">
+          <div class="video-circle-item" data-vid="media/IMG_2986.MP4">
+            <video src="media/IMG_2986.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_2990.MP4">
+            <video src="media/IMG_2990.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_3055.MP4">
+            <video src="media/IMG_3055.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_3057.MP4">
+            <video src="media/IMG_3057.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_3107.MP4">
+            <video src="media/IMG_3107.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_4147.MP4">
+            <video src="media/IMG_4147.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_4148.MP4">
+            <video src="media/IMG_4148.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_4149.MP4">
+            <video src="media/IMG_4149.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_4180.MP4">
+            <video src="media/IMG_4180.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_4184.MP4">
+            <video src="media/IMG_4184.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_4216.MP4">
+            <video src="media/IMG_4216.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_4217.MP4">
+            <video src="media/IMG_4217.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_4239.MP4">
+            <video src="media/IMG_4239.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_4369.MP4">
+            <video src="media/IMG_4369.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_4467.MP4">
+            <video src="media/IMG_4467.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_5182.MP4">
+            <video src="media/IMG_5182.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_5243.MP4">
+            <video src="media/IMG_5243.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_5332.MP4">
+            <video src="media/IMG_5332.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_5560.MP4">
+            <video src="media/IMG_5560.MP4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/IMG_6861.MOV">
+            <video src="media/IMG_6861.MOV" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/vid.MOV">
+            <video src="media/vid.MOV" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/video.mp4">
+            <video src="media/video.mp4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+          <div class="video-circle-item" data-vid="media/video111.mp4">
+            <video src="media/video111.mp4" muted preload="metadata" class="circle-vid-preview"></video>
+            <div class="play-overlay"><span class="play-icon">▶</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="story-section">
+      <div class="final-photo-container circular-final">
+        <img src="media/we%203.JPG" alt="Навсегда" class="final-circular-photo" />
+      </div>
+    </section>
+    <!-- ═══════ СТАТИСТИКА ═══════ -->
+    <section class="story-section" id="section-stats">
+      <div class="story-card">
+        <div class="section-emoji">📊</div>
+        <h2 class="section-title">Немного наших цифр</h2>
+        <div class="stats-container">
+          <div class="stat-box">
+            <div class="stat-value" id="stat-total">0</div>
+            <div class="stat-label">Сообщений всего</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-vlad">0</div>
+            <div class="stat-label">Отправил Влад</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value" id="stat-sasha">0</div>
+            <div class="stat-label">Отправила Саша</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ КВИЗ ═══════ -->
+    <section class="story-section" id="section-quiz">
+      <div class="story-card quiz-wrapper">
+        <div class="section-emoji">🎯</div>
+        <h2 class="section-title">Хорошо ли ты помнишь нашу переписку?</h2>
+        
+        <div class="quiz-lives">
+          Жизни: <span id="life-1">❤️</span><span id="life-2">❤️</span><span id="life-3">❤️</span>
+        </div>
+
+        <div id="quiz-container">
+          <div class="quiz-question" id="quiz-q-text">Загрузка вопроса...</div>
+          <div class="quiz-options" id="quiz-options"></div>
+          <button class="hint-btn" id="quiz-hint-btn">💡 Подсказка (осталось 3)</button>
+          <div id="quiz-explanation" class="hidden" style="margin-top: 15px; background: rgba(255,255,255,0.7); padding: 15px; border-radius: 10px; text-align: left; font-size: 0.95rem; line-height: 1.4; color: #444; border-left: 4px solid #e8457a;">
+             <div id="quiz-exp-text"></div>
+             <button class="start-button" id="quiz-next-btn" style="margin-top: 15px; font-size: 0.9rem; padding: 8px 16px; display: block; margin-left: auto; margin-right: auto;">Дальше ➡️</button>
+          </div>
+        </div>
+
+        <div id="quiz-win" class="hidden">
+          <div class="win-emoji">🏆</div>
+          <h3 class="win-title">Ты знаешь всё!</h3>
+          <p class="win-text">Наша история в твоем сердце навсегда.</p>
+          <button class="start-button" id="quiz-win-retry-btn" style="margin-top:1rem; font-size:1rem; padding:10px 20px;">Пройти ещё раз</button>
+        </div>
+        <div id="quiz-lose" class="hidden">
+          <div class="win-emoji">💔</div>
+          <h3 class="win-title">Ой...</h3>
+          <p class="win-text">Похоже, нужно перечитать нашу историю!</p>
+          <button class="start-button" id="quiz-retry-btn" style="margin-top:1rem;">Попробовать снова</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ МАШИНА ВРЕМЕНИ ═══════ -->
+    <section class="story-section" id="section-timemachine">
+      <div class="story-card" style="text-align: center;">
+        <div class="section-emoji">🕰️</div>
+        <h2 class="section-title">Машина времени</h2>
+        <p class="section-text" style="margin-bottom: 2rem;">Наши лучшие сообщения, спрятанные в переписке.</p>
+        
+        <button class="start-button" id="btn-warmth">
+          <span class="heart-icon">🔥</span> Почувствовать тепло
+        </button>
+
+        <div id="quote-display" class="quote-display hidden">
+          <div class="quote-text" id="quote-text"></div>
+          <div class="quote-meta">
+            <span id="quote-author"></span> • <span id="quote-date"></span> в <span id="quote-time"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ Таймер отношений ═══════ -->
+    <section class="timer-section" id="section-timer">
+      <h2 class="timer-title">Мы вместе уже… 💜</h2>
+      <div class="timer-container">
+        <div class="timer-block">
+          <div class="timer-value" id="timer-days">0</div>
+          <div class="timer-label">дней</div>
+        </div>
+        <div class="timer-block">
+          <div class="timer-value" id="timer-hours">0</div>
+          <div class="timer-label">часов</div>
+        </div>
+        <div class="timer-block">
+          <div class="timer-value" id="timer-mins">0</div>
+          <div class="timer-label">минут</div>
+        </div>
+        <div class="timer-block">
+          <div class="timer-value" id="timer-secs">0</div>
+          <div class="timer-label">секунд</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════ ФИНАЛ: Нынешнее фото + признание ═══════ -->
+    <section class="story-section final-section" id="section-final">
+      <div class="final-content">
+        <div class="final-photo-wrapper reveal-item">
+          <img src="media/we%209.jpg" alt="Мы сейчас" class="final-photo" loading="eager" />
+          <div class="final-photo-glow"></div>
+        </div>
+        <div class="final-heart">💖</div>
+        <h2 class="final-title">С&nbsp;годовщиной, любимая&nbsp;❤️</h2>
+        <p class="final-message">
+          Я&nbsp;люблю&nbsp;тебя.<br>
+          Сегодня, завтра и&nbsp;всегда.
+        </p>
+        <p class="final-signature">— навсегда твой 💜</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Music Toggle -->
+  <button class="music-toggle" id="music-toggle" aria-label="Вкл/Выкл музыку">
+    <div class="equalizer">
+      <div class="eq-bar" style="height:8px"></div>
+      <div class="eq-bar" style="height:14px"></div>
+      <div class="eq-bar" style="height:5px"></div>
+      <div class="eq-bar" style="height:11px"></div>
+    </div>
+  </button>
+
+
+  <!-- ═══════ VIDEO MODAL ═══════ -->
+  <div id="video-modal" class="video-modal hidden">
+    <div class="video-modal-overlay"></div>
+    <div class="video-modal-content">
+      <button id="video-modal-close" class="modal-close">&times;</button>
+      <video id="modal-video-player" controls playsinline></video>
+    </div>
+  </div>
+
+  <script src="chat_data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
